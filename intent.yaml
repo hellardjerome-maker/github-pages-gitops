@@ -1,10 +1,4 @@
-intent:
-service: website
-visibility: public
-protocols:
-- https
-availability: always
-versioning: git
-assurance:
-- reachable
-- https_enabled
+site:
+title: "Évaluation GitOps-IBN"
+version: 1
+header: "Site Version 1"
