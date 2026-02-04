@@ -1,3 +1,10 @@
-site:
-  title: "Site Version 2"
-  public: true
+intent:
+service: website
+visibility: public
+protocols:
+- https
+availability: always
+versioning: git
+assurance:
+- reachable
+- https_enabled
