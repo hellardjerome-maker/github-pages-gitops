@@ -1,0 +1,29 @@
+name: GitOps Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/1 * * * *"  
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Générer index.html depuis l’intention
+        run: |
+          # On extrait les valeurs depuis intent.yaml
+          VERSION=$(yq '.site.version' intent.yaml)
+          HEADER=$(yq '.site.header' intent.yaml)
+          
+          # On génère le fichier index.html
+          cat <<EOF > index.html
+          <html>
+          <body>
+            <h1>$HEADER</h1>
+            <p>Version $VERSION</p>
+          </body>
+          </html>
+          EOF
