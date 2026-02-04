@@ -1,4 +1,4 @@
-name: GitOps Pages
+name: github-pages-gitops
 
 on:
   push:
